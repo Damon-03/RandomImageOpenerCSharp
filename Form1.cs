@@ -26,7 +26,12 @@ namespace ImageOpenerCsharp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile("Image1.png");
+            var rand = new Random();
+            var files = System.IO.Directory.GetFiles("D://Refrences/Folder 1","*.jpg");
+            var imageChoice = files[rand.Next(files.Length)];
+            pictureBox1.ImageLocation = imageChoice;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Size = new Size(1280, 720);   
         }
     }
 }
